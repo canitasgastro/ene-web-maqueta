@@ -437,3 +437,4 @@ section[id]{scroll-margin-top:136px}
 .marron .carta-menu .platos li{border-color:rgba(244,235,221,.14)}
 .marron .carta-menu .platos li::before{background:var(--mantequilla)}
 .elige{display:inline-block;font-family:var(--fina);font-size:13px;font-weight:600;background:var(--mantequilla);color:var(--marron);border-radius:999px;padding:.15em .7em;margin-left:8px;vertical-align:middle}
+.hero{padding-top:120px}
