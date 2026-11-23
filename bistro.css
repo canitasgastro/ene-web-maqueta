@@ -157,7 +157,7 @@ h1,h2,h3,p{margin:0;font-weight:400}
 .pila>*{position:sticky;top:0;--p:0}
 .pila>*+*{overflow:hidden}
 .pila>*::after{content:"";position:absolute;inset:0;background:var(--noche);opacity:calc(var(--p) * .38);pointer-events:none;z-index:5}
-.pila>*{transform:scale(calc(1 - var(--p) * .045));transform-origin:50% 0}
+
 .pila>.foto-sangre,.pila>.fotos,.pila>.dos{position:sticky}
 .pila .frase{z-index:2}
 .pie{position:sticky}
