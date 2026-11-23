@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trabaja en eñe bistró | Empleo en hostelería en Albacete</title>
+<meta name="description" content="Buscamos cocinero/a y camarero/a con un año de experiencia: jornada completa, trabajo estable y dos días libres. Envía tu CV a info@enebycanitas.com.">
+<link rel="canonical" href="https://enebycanitas.com/trabaja-con-nosotros">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="bistro.css">
+
+</head>
+<body class="p-trabaja-con-nosotros">
+<header class="top sobre-granate">
+  <a class="marca" href="index.html" aria-label="eñe bistró, inicio"><img class="l-crema" src="img/ene_bistro_crema.svg" alt="eñe bistró"><img class="l-granate" src="img/ene_bistro_granate.svg" alt=""></a>
+  <nav aria-label="Principal"><a href="carta-restaurante.html">Carta</a><a href="menu-restaurante.html">Mediodía</a><a href="los-vinos.html">Vinos</a><a href="cenas-de-empresa-albacete.html">Grupos</a><a href="tarjeta-de-regalo.html">Regala</a><a href="trabaja-con-nosotros.html" aria-current="page">Trabaja</a><a href="contacto.html">Cómo llegar</a><a class="reservar" href="reservas.html">Reservas</a></nav>
+  <div class="movil"><a href="reservas.html">Reservas</a><button class="abrir" type="button" aria-expanded="false" aria-controls="menu-total">Menú</button></div>
+</header>
+<div class="menu-total" id="menu-total" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="barra"><a href="index.html" aria-label="eñe bistró, inicio"><img src="img/ene_bistro_crema.svg" alt="eñe bistró"></a><button class="cerrar" type="button">Cerrar</button></div>
+  <ul><li><a href="carta-restaurante.html">Carta</a></li><li><a href="menu-restaurante.html">Mediodía</a></li><li><a href="los-vinos.html">Vinos</a></li><li><a href="cenas-de-empresa-albacete.html">Grupos</a></li><li><a href="tarjeta-de-regalo.html">Regala</a></li><li><a href="trabaja-con-nosotros.html" aria-current="page">Trabaja</a></li><li><a href="contacto.html">Cómo llegar</a></li><li><a href="reservas.html">Reservas</a></li></ul>
+  <p class="caps">Martes a sábado<br>13:15 a 16:00 + 20:00 a 00:00<br>Domingo y lunes, cerrado</p>
+</div>
+<main>
+<section class="plano granate">
+  <p class="etiqueta">Trabaja en eñe bistró</p>
+  <h1 class="titulo">Buscamos cocinero/a y camarero/a.</h1>
+  <ul class="lista-caps">
+    <li>Mínimo 1 año de experiencia</li><li>Jornada completa</li><li>Trabajo estable</li><li>2 días libres</li>
+  </ul>
+  <p class="texto" style="margin-top:30px">Si te gusta la cocina de casa, el vino y el buen ambiente de sala, escríbenos.</p>
+  <a class="boton" href="mailto:info@enebycanitas.com?subject=CV">Envía tu CV a info@enebycanitas.com</a>
+</section>
+<section class="foto-sangre">
+  <img src="img/barra.jpg" alt="El equipo de sala sirviendo en la barra de eñe bistró" loading="lazy">
+</section>
+</main>
+<footer class="pie">
+  <img class="pie-logo" src="img/ene_bistro_crema.svg" alt="eñe bistró">
+  <p class="caps">Guisos, canelones y vino al centro</p>
+  <div class="pie-datos">
+    <a class="caps" href="tel:+34615447313">615 447 313</a>
+    <div class="caps"><span class="tit">Horario</span>Martes a sábado<br>13:15 a 16:00 + 20:00 a 00:00<br>Domingo y lunes, cerrado</div>
+    <a class="caps" href="#">Instagram</a>
+  </div>
+  <p class="caps">Avenida de España, 30 · El Corte Inglés, planta semisótano · Albacete</p>
+  <p class="caps">Parking gratis para clientes</p>
+  <div class="legal"><a href="contacto.html">Preguntas frecuentes</a><a href="#">Alérgenos</a><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+</footer>
+<script>
+(function(){
+  var top=document.querySelector('.top'),menu=document.getElementById('menu-total'),abrir=document.querySelector('.abrir'),cerrar=document.querySelector('.cerrar');
+  function fija(){top.classList.toggle('fija',window.scrollY>window.innerHeight*0.6)}
+  window.addEventListener('scroll',fija,{passive:true});fija();
+  function abre(){menu.hidden=false;document.body.classList.add('sin-scroll');abrir.setAttribute('aria-expanded','true');cerrar.focus()}
+  function cierra(){menu.hidden=true;document.body.classList.remove('sin-scroll');abrir.setAttribute('aria-expanded','false');abrir.focus()}
+  abrir.addEventListener('click',abre);cerrar.addEventListener('click',cierra);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!menu.hidden)cierra()});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});
+    document.querySelectorAll('.aparece').forEach(function(el){io.observe(el)});
+  } else document.querySelectorAll('.aparece').forEach(function(el){el.classList.add('visto')});
+})();
+</script>
+</body>
+</html>

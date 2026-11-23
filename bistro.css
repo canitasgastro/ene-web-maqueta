@@ -1,0 +1,154 @@
+/* eñe bistró · maqueta web con el branding v7 (23/11/2026), en la línea de Casa Fiero */
+:root{
+  --granate:#3B0A06; --crema:#F3E6CC; --noche:#141110; --amarillo:#F3DF8D; --piedra:#C9B9A6;
+  --letra:"Special Elite","Courier New",monospace;
+  --margen:clamp(18px,3.2vw,40px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--granate);color:var(--crema);font-family:var(--letra);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body.sin-scroll{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0;font-weight:400}
+:focus-visible{outline:2px solid var(--amarillo);outline-offset:4px}
+::selection{background:var(--amarillo);color:var(--granate)}
+.caps{text-transform:uppercase;letter-spacing:.22em;font-size:13.5px;line-height:1.9}
+.muy-espaciado{letter-spacing:.6em}
+.pendiente{background:var(--amarillo);color:var(--granate);padding:0 .35em;letter-spacing:.04em;text-transform:none;font-size:.85em}
+
+/* ---------- cabecera ---------- */
+.top{position:absolute;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:28px;padding:22px var(--margen);color:var(--crema)}
+.top .marca{display:none;flex:none}
+.top .marca img{height:38px;width:auto}
+.top .l-granate{display:none}
+.top nav{flex:1;display:flex;justify-content:space-between;gap:18px}
+.top nav a,.top .movil a,.top .movil button{text-decoration:none;text-transform:uppercase;letter-spacing:.22em;font-size:13px;color:inherit;font-family:var(--letra);background:none;border:0;padding:4px 0;cursor:pointer}
+.top nav a:hover,.top nav a[aria-current]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.top .movil{display:none;gap:22px;margin-left:auto}
+.top.sobre-crema,.top.sobre-amarillo{color:var(--granate)}
+.top.sobre-crema .l-crema,.top.sobre-amarillo .l-crema{display:none}
+.top.sobre-crema .l-granate,.top.sobre-amarillo .l-granate{display:block}
+.top.fija{position:fixed;background:var(--granate);color:var(--crema);padding-top:14px;padding-bottom:14px;animation:baja .35s ease both}
+.top.fija .marca{display:block}
+.top.fija .l-crema{display:block}.top.fija .l-granate{display:none}
+.top.fija.sobre-crema,.top.fija.sobre-amarillo{background:var(--crema);color:var(--granate)}
+.top.fija.sobre-crema .l-crema,.top.fija.sobre-amarillo .l-crema{display:none}
+.top.fija.sobre-crema .l-granate,.top.fija.sobre-amarillo .l-granate{display:block}
+@keyframes baja{from{transform:translateY(-100%)}}
+
+.menu-total{position:fixed;inset:0;z-index:50;background:var(--granate);color:var(--crema);display:flex;flex-direction:column;padding:18px var(--margen) 34px;overflow-y:auto;animation:telon .4s cubic-bezier(.2,.8,.2,1) both}
+.menu-total[hidden]{display:none}
+.menu-total .barra{display:flex;justify-content:space-between;align-items:center}
+.menu-total .barra img{height:40px;width:auto}
+.menu-total .cerrar{font-family:var(--letra);text-transform:uppercase;letter-spacing:.22em;font-size:13px;color:var(--crema);background:none;border:0;cursor:pointer}
+.menu-total ul{list-style:none;margin:auto 0;padding:40px 0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.menu-total li a{text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(26px,7vw,40px);line-height:1.2}
+.menu-total li a[aria-current]{color:var(--amarillo)}
+.menu-total p{text-align:center}
+@keyframes telon{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* ---------- planos ---------- */
+.plano{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px var(--margen) 80px;position:relative}
+.plano.corto{min-height:auto;padding-top:120px;padding-bottom:120px}
+.granate{background:var(--granate);color:var(--crema)}
+.crema{background:var(--crema);color:var(--granate)}
+.amarillo{background:var(--amarillo);color:var(--granate)}
+.noche{background:var(--noche);color:var(--crema)}
+.crema .pendiente,.amarillo .pendiente{background:var(--granate);color:var(--amarillo)}
+
+.logo-grande{width:min(80vw,860px);height:auto}
+.portada h1{margin-top:clamp(28px,5vh,54px)}
+.portada .datos{margin-top:clamp(40px,8vh,90px)}
+.datos{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.datos>:first-child{justify-self:start}
+.datos>:last-child{justify-self:end}
+.datos a{text-decoration:none}
+.datos .tit,.pie .tit{display:block}
+
+.titulo{font-size:clamp(30px,4.6vw,58px);line-height:1.12;letter-spacing:-.005em;max-width:20ch;margin-inline:auto}
+.titulo-s{font-size:clamp(24px,3vw,36px);line-height:1.2;max-width:24ch;margin-inline:auto}
+.etiqueta{text-transform:uppercase;letter-spacing:.6em;font-size:13px;margin-bottom:28px;padding-left:.6em}
+.texto{max-width:62ch;margin:0 auto;font-size:clamp(16px,1.4vw,18px)}
+.texto+.texto{margin-top:1.1em}
+.texto-caps{max-width:72ch;margin:0 auto;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(13.5px,1.2vw,15px);line-height:2}
+.boton{display:inline-block;margin-top:38px;text-decoration:none;text-transform:uppercase;letter-spacing:.22em;font-size:14px;padding-bottom:4px;border-bottom:1px solid currentColor}
+.boton:hover{color:var(--amarillo)}
+.crema .boton:hover,.amarillo .boton:hover{color:var(--noche)}
+.botones{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 40px}
+
+/* ---------- foto ---------- */
+.foto-sangre{position:relative;height:100svh;min-height:520px;overflow:hidden;background:var(--noche)}
+.foto-sangre img{width:100%;height:100%;object-fit:cover}
+.frase{position:absolute;left:var(--margen);bottom:clamp(28px,6vh,64px);right:var(--margen);color:var(--amarillo);font-size:clamp(26px,3.6vw,48px);line-height:1.15;max-width:20ch;text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.frase.arriba{top:clamp(90px,12vh,130px);bottom:auto}
+.fotos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--noche)}
+.fotos figure{margin:0;position:relative;aspect-ratio:4/5;overflow:hidden}
+.fotos img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.fotos figure:hover img{transform:scale(1.03)}
+.fotos .frase{font-size:clamp(20px,2vw,28px);top:22px;bottom:auto;left:22px;right:22px}
+.dos{display:grid;grid-template-columns:1fr 1fr;min-height:100svh}
+.dos>figure{margin:0;overflow:hidden;background:var(--noche)}
+.dos>figure img{width:100%;height:100%;object-fit:cover}
+.dos>div{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:90px var(--margen)}
+
+/* ---------- carta ---------- */
+.carta{max-width:680px;margin:0 auto;text-align:center}
+.carta .logo-carta{width:min(300px,60vw);margin:0 auto 40px}
+.carta section{margin-top:58px}
+.carta h2{text-transform:uppercase;letter-spacing:.3em;font-size:14px;margin-bottom:16px}
+.carta ul{list-style:none;margin:0;padding:0}
+.carta li{font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:var(--noche)}
+.carta li small{display:block;font-size:.8em;color:#5b4a42;line-height:1.3;margin-bottom:6px}
+.carta .nota{margin-top:58px}
+.carta-sep{width:42px;height:1px;background:currentColor;margin:56px auto 0;opacity:.5}
+
+/* ---------- condiciones, faq ---------- */
+.lista-caps{list-style:none;margin:28px auto 0;padding:0;text-transform:uppercase;letter-spacing:.2em;font-size:14px;line-height:2.3}
+.faq{max-width:760px;margin:0 auto;text-align:left;width:100%}
+.faq details{border-top:1px solid currentColor}
+.faq details:last-child{border-bottom:1px solid currentColor}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;text-transform:uppercase;letter-spacing:.16em;font-size:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 22px;max-width:62ch}
+.hueco{border:1px dashed currentColor;padding:46px 24px;margin:40px auto 0;max-width:640px;width:100%}
+
+/* ---------- pie ---------- */
+.pie{background:var(--granate);color:var(--crema);text-align:center;padding:110px var(--margen) 40px;display:flex;flex-direction:column;align-items:center;gap:22px}
+.pie-logo{width:min(380px,70vw)}
+.pie-datos{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;margin:30px 0 10px}
+.pie-datos>:first-child{justify-self:start}.pie-datos>:last-child{justify-self:end}
+.pie-datos a{text-decoration:none}
+.legal{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin-top:40px;font-size:12px;text-transform:uppercase;letter-spacing:.18em;opacity:.75}
+.legal a{text-decoration:none}
+
+/* ---------- movimiento ---------- */
+.aparece{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.aparece.visto{opacity:1;transform:none}
+.portada .logo-grande{animation:entra 1.2s cubic-bezier(.2,.8,.2,1) both}
+.portada h1,.portada .datos{animation:entra 1.2s .25s cubic-bezier(.2,.8,.2,1) both}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.aparece{opacity:1;transform:none}}
+
+/* ---------- móvil ---------- */
+@media (max-width:980px){
+  .top nav{display:none}
+  .top .movil{display:flex}
+  .top .marca{display:block}
+  .p-home .top:not(.fija) .marca{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .datos,.pie-datos{grid-template-columns:1fr;gap:18px}
+  .datos>*,.pie-datos>*{justify-self:center!important}
+  .fotos{grid-template-columns:1fr}
+  .fotos figure{aspect-ratio:4/5}
+  .dos{grid-template-columns:1fr;min-height:0}
+  .dos>figure{aspect-ratio:4/5}
+  .foto-sangre{height:82svh}
+  .etiqueta{letter-spacing:.4em}
+  .caps{letter-spacing:.16em}
+}
