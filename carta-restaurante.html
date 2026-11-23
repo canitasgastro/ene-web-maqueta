@@ -25,7 +25,7 @@
   <ul><li><a href="carta-restaurante.html" aria-current="page">Carta</a></li><li><a href="menu-restaurante.html">Mediodía</a></li><li><a href="los-vinos.html">Vinos</a></li><li><a href="cenas-de-empresa-albacete.html">Grupos</a></li><li><a href="tarjeta-de-regalo.html">Regala</a></li><li><a href="trabaja-con-nosotros.html">Trabaja</a></li><li><a href="contacto.html">Cómo llegar</a></li><li><a href="reservas.html">Reservas</a></li></ul>
   <p class="caps">Martes a sábado<br>13:15 a 16:00 + 20:00 a 00:00<br>Domingo y lunes, cerrado</p>
 </div>
-<main>
+<main class="pila">
 <!-- crema -->
 
 <section class="plano crema" style="min-height:auto;padding-top:130px">
@@ -55,7 +55,6 @@
   <h2 class="titulo-s aparece">¿Venís seis o más? Llámanos y os preparamos la mesa.</h2>
   <div class="botones aparece"><a class="boton" href="reservas.html">Reservar</a><a class="boton" href="tel:+34615447313">615 447 313</a></div>
 </section>
-</main>
 <footer class="pie">
   <img class="pie-logo" src="img/ene_bistro_crema.svg" alt="eñe bistró">
   <p class="caps">Guisos, canelones y vino al centro</p>
@@ -68,6 +67,7 @@
   <p class="caps">Parking gratis para clientes</p>
   <div class="legal"><a href="contacto.html">Preguntas frecuentes</a><a href="#">Alérgenos</a><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
 </footer>
+</main>
 <script>
 (function(){
   var top=document.querySelector('.top'),menu=document.getElementById('menu-total'),abrir=document.querySelector('.abrir'),cerrar=document.querySelector('.cerrar');
@@ -81,6 +81,21 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});
     document.querySelectorAll('.aparece').forEach(function(el){io.observe(el)});
   } else document.querySelectorAll('.aparece').forEach(function(el){el.classList.add('visto')});
+  /* Scroll de tarjetas: cada apartado se queda fijo y el siguiente sube por encima.
+     Si un apartado es más alto que la pantalla, primero se lee entero y luego se fija por abajo. */
+  var cartas=[].slice.call(document.querySelectorAll('.pila>*'));
+  var quieto=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mide(){cartas.forEach(function(c){c.style.top=Math.min(0,window.innerHeight-c.offsetHeight)+'px'})}
+  var pendiente=false;
+  function pinta(){pendiente=false;var h=window.innerHeight;
+    cartas.forEach(function(c,i){var sig=cartas[i+1];if(!sig)return;
+      var p=Math.max(0,Math.min(1,(h-sig.getBoundingClientRect().top)/h));
+      c.style.setProperty('--p',p.toFixed(3));})}
+  function pide(){if(!pendiente){pendiente=true;requestAnimationFrame(pinta)}}
+  mide();pinta();
+  window.addEventListener('resize',function(){mide();pide()});
+  window.addEventListener('load',function(){mide();pide()});
+  if(!quieto)window.addEventListener('scroll',pide,{passive:true});
 })();
 </script>
 </body>
